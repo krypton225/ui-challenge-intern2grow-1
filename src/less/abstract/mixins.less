@@ -6,6 +6,13 @@
     @{property}: @value;
 }
 
+.prefixing-web-moz-ms(@property, @value) {
+    -webkit-@{property}: @value;
+    -moz-@{property}: @value;
+    -ms-@{property}: @value;
+    @{property}: @value;
+}
+
 .prefixing-web-moz(@property, @value) {
     -webkit-@{property}: @value;
     -moz-@{property}: @value;
