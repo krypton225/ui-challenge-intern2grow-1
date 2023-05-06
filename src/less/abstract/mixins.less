@@ -1,0 +1,166 @@
+.prefixing-all(@property, @value) {
+    -webkit-@{property}: @value;
+    -moz-@{property}: @value;
+    -ms-@{property}: @value;
+    -o-@{property}: @value;
+    @{property}: @value;
+}
+
+.prefixing-web-moz(@property, @value) {
+    -webkit-@{property}: @value;
+    -moz-@{property}: @value;
+    @{property}: @value;
+}
+
+.prefixing-web-ms(@property, @value) {
+    -webkit-@{property}: @value;
+    -ms-@{property}: @value;
+    @{property}: @value;
+}
+
+.prefixing-web-o(@property, @value) {
+    -webkit-@{property}: @value;
+    -o-@{property}: @value;
+    @{property}: @value;
+}
+
+.prefixing-moz-o(@property, @value) {
+    -moz-@{property}: @value;
+    -o-@{property}: @value;
+    @{property}: @value;
+}
+
+.prefixing-ms-o(@property, @value) {
+    -ms-@{property}: @value;
+    -o-@{property}: @value;
+    @{property}: @value;
+}
+
+.prefixing-ms(@property, @value) {
+    -ms-@{property}: @value;
+    @{property}: @value;
+}
+
+/* ========== Start Flexbox ========== */
+
+.d-flex() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.align-items(@value) {
+    -webkit-box-align: @value;
+    -ms-flex-align: @value;
+    align-items: @value;
+}
+
+.justify-content(@value) {
+    -webkit-box-pack: @value;
+    -ms-flex-pack: @value;
+    justify-content: @value;
+}
+
+.flex-dir(@value) {
+    & when (@value = column) {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    & when (@value = ""), (@value = row) {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+}
+
+/* ========== End Flexbox ========== */
+
+.flex-start-row() {
+    .d-flex();
+    .align-items(center);
+}
+
+.flex-end-row() {
+    .d-flex();
+    .justify-content(flex-end);
+    .align-items(center);
+}
+
+.flex-around-row() {
+    .d-flex();
+    .justify-content(space-around);
+    .align-items(center);
+}
+
+.flex-between-row() {
+    .d-flex();
+    .justify-content(space-between);
+    .align-items(center);
+}
+
+.flex-evenly-row() {
+    .d-flex();
+    .justify-content(space-evenly);
+    .align-items(center);
+}
+
+.flex-center-row() {
+    .d-flex();
+    .justify-content(center);
+    .align-items(center);
+}
+
+.flex-center-column() {
+    .d-flex();
+    .flex-dir(column);
+    .justify-content(center);
+    .align-items(center);
+}
+
+.fade(@value) {
+    & when (@value = hide) {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    & when (@value = show) {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.transition(@prop, @time: 0.3s, @func, @delay: 0s) {
+    & when (@func = ease) {
+        .prefixing-web-o(transition, @prop @time ease 0);
+    }
+    & when (@func = ease-in) {
+        .prefixing-web-o(transition, @prop @time ease-in 0);
+    }
+    & when (@func = ease-in-out) {
+        .prefixing-web-o(transition, @prop @time ease-in-out 0);
+    }
+    & when (@func = ease-out) {
+        .prefixing-web-o(transition, @prop @time ease-out 0);
+    }
+    & when (@func = linear) {
+        .prefixing-web-o(transition, @prop @time linear 0);
+    }
+}
+
+.center-x() {
+    display: block;
+    margin-inline: auto;
+}
+
+.grid(@min-col-size, @gap) {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(@min-col-size, 100%), 1fr)
+    );
+    gap: @gap;
+}
