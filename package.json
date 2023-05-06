@@ -1,0 +1,19 @@
+{
+    "name": "ui-challenge-intern2grow-1",
+    "version": "1.0.0",
+    "description": "This is just a simple UI task for practice",
+    "license": "MIT",
+    "author": "Khaled Mohamed",
+    "main": "index.js",
+    "scripts": {
+        "less:watch": "less-watch-compiler"
+    },
+    "keywords": [
+        "UI development",
+        "UI task"
+    ],
+    "devDependencies": {
+        "less": "^4.1.3",
+        "less-watch-compiler": "^1.16.3"
+    }
+}
