@@ -1,3 +1,6 @@
 node_modules
 
 .vscode
+
+# Will be removed after finish the styling of the project.
+dist/css/index.css
