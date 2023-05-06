@@ -6,6 +6,7 @@
     "author": "Khaled Mohamed",
     "main": "index.js",
     "scripts": {
+        "start": "live-server",
         "less:watch": "less-watch-compiler"
     },
     "keywords": [
